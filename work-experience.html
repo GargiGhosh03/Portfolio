@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work Experience – Gargi Ghosh</title>
+  <style>
+    body {
+      background-color: #0a0c1b;
+      font-family: 'Orbitron', 'Segoe UI', sans-serif;
+      color: #e0f2fe;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #111827;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .experience-section {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: rgba(18, 24, 47, 0.9);
+      border: 1px solid #3b82f6;
+      border-radius: 16px;
+      box-shadow: 0 0 20px #1e3a8a;
+    }
+
+    .experience-section h2 {
+      font-size: 1.8rem;
+      color: #60a5fa;
+      margin-bottom: 1.5rem;
+    }
+
+    .experience-entry {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #334155;
+    }
+
+    .experience-entry h3 {
+      font-size: 1.2rem;
+      color: #c084fc;
+      margin-bottom: 0.3rem;
+    }
+
+    .experience-entry span {
+      display: block;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-entry p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #e2e8f0;
+    }
+
+    #bouncing-ball-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  pointer-events: none;
+}
+
+  </style>
+</head>
+<body>
+<canvas id="bouncing-ball-canvas"></canvas>
+  <nav>
+    <ul>
+      <li><a href="p1.html#home">Home</a></li>
+      <li><a href="p1.html#about">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="p1.html#publications-section">Publications</a></li>
+      <li><a href="work-experience.html">Experience</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <!-- Experience Section -->
+  <section class="experience-section">
+    <h2>Work Experience</h2>
+
+    <div class="experience-entry">
+      <h3>ML Research Intern – National Chung Cheng University</h3>
+      <span>Dec 2024 – Mar 2025 · Taiwan (on-site)</span>
+      <p> ◦ Designed and implemented multiple ML models for medical image classification tasks, specifically focusing on endoscopy and colonoscopy datasets. </p>
+      <p>◦ Compared model efficiency and accuracy using Spectrum-Aided Vision Enhancer (SAVE), narrowband imaging, and white light imaging techniques. </p>
+      <p>◦ Demonstrated that the SAVE algorithm outperformed other ML models in terms of accuracy and classification performance, solidifying its applicability in medical imaging.</p>
+    </div>
+
+  <script>
+const canvas = document.getElementById("bouncing-ball-canvas");
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  const ball = {
+    x: canvas.width / 2,
+    y: canvas.height / 2,
+    radius: 18,
+    dx: 3,
+    dy: 2.5,
+    color: "rgba(0, 255, 229, 0.3)",
+    glow: "#00ffe5"
+  };
+
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+    ctx.fillStyle = ball.color;
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = ball.glow;
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  function update() {
+    // Clear canvas using transparency for trails, without dark background
+    ctx.globalCompositeOperation = 'destination-in';
+    ctx.fillStyle = "rgba(0, 0, 0, 0.92)"; // keep trails but clear slowly
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.globalCompositeOperation = 'lighter';
+
+    // Update ball position
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    // Bounce off walls
+    if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+      ball.dx *= -1;
+    }
+    if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+      ball.dy *= -1;
+    }
+
+    drawBall();
+    requestAnimationFrame(update);
+  }
+
+  update();
+
+  
+</script>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects – Gargi Ghosh</title>
+
+  <style>
+    body {
+      background-color: #0a0c1b;
+      font-family: 'Work Sans', sans-serif;
+      color: #e0f2fe;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #111827;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .project-detail {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: rgba(18, 24, 47, 0.8);
+      border: 1px solid #3b82f6;
+      border-radius: 16px;
+      box-shadow: 0 0 20px #1e3a8a;
+    }
+
+    .project-detail h2 {
+      color: #60a5fa;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .project-detail p {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    nav a.active {
+  color: #fff;
+  border-bottom: 2px solid #60a5fa;
+}
+ #bouncing-ball-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  pointer-events: none;
+}
+
+  </style>
+</head>
+<body>
+<canvas id="bouncing-ball-canvas"></canvas>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="p1.html">Home</a></li>
+      <li><a href="p1.html#about">About</a></li>
+      <li><a href="#save-model" class="active">Projects</a></li>
+      <li><a href="p1.html#publications-section">Publications</a></li>
+      <li><a href="work-experience.html#experience">Experience</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <!-- Projects Details -->
+  <section class="project-detail" id="save-model">
+    <h2> Evaluation of Spectrum-Aided Vision Enhancer for Classification of Gastrointestinal Disease in Capsule Endoscopy</h2>
+    <p>SAVE has been used to improve mucosal visualization, improving the identification of small mucosal abnormalities that conventional imaging techniques can overlook, using hyperspectral imaging techniques. The machine learning algorithms used were ResNet50, ResNet101, EfficientNetB2, EfficientNetB5 and EfficientNetV2, where EfficientNetV2 outperformed other models by producing an accuracy of 89 percent in SAVE images.
+    </p>
+  </section>
+
+  <section class="project-detail" id="photography">
+    <h2> Lung and Colon Cancer Detection</h2>
+    <p>Developed a deep learning model for the early detection of lung and colon cancer using medical imaging techniques. The model achieved high accuracy in identifying cancerous lesions, aiding radiologists in diagnosis. Tensorflow library has been used for implementing deep learning model. The model was successfully evaluated and the accuracy was found to be 97 percent.</p>
+  </section>
+
+  <section class="project-detail" id="chatbot">
+    <h2>Apple Watch and Fitbit Data Processing and Prediction</h2>
+    <p> Data Processing was done by using pandas and numpy libraries. Models were built using the sklearn library. For data visualization seaborn and matplotlib libraries was used to create heatmaps, histplots. The accuracy predicted was 88 percent.</p>
+  </section>
+
+  <section class="project-detail" id="ai-films">
+    <h2>Warranty Claims Fraud Prediction</h2>
+    <p>Developed a machine learning model to predict fraudulent warranty claims, improving the accuracy of claims processing. Accuracy was calculated under different classifiers such as Decision Tree, Random Forest, and Logistic Regression and was found to be 92 percent.</p>
+  </section>
+
+  <section class="project-detail" id="more-projects">
+    <p>Please check my Github profile for more projects <a href="https://github.com/GargiGhosh03" target="_blank" aria-label="GitHub" rel="noopener noreferrer">here</a>.</p>
+<script>
+const canvas = document.getElementById("bouncing-ball-canvas");
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  const ball = {
+    x: canvas.width / 2,
+    y: canvas.height / 2,
+    radius: 18,
+    dx: 3,
+    dy: 2.5,
+    color: "rgba(0, 255, 229, 0.3)",
+    glow: "#00ffe5"
+  };
+
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+    ctx.fillStyle = ball.color;
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = ball.glow;
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  function update() {
+    // Clear canvas using transparency for trails, without dark background
+    ctx.globalCompositeOperation = 'destination-in';
+    ctx.fillStyle = "rgba(0, 0, 0, 0.92)"; // keep trails but clear slowly
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.globalCompositeOperation = 'lighter';
+
+    // Update ball position
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    // Bounce off walls
+    if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+      ball.dx *= -1;
+    }
+    if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+      ball.dy *= -1;
+    }
+
+    drawBall();
+    requestAnimationFrame(update);
+  }
+
+  update();
+  
+</script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gargi Ghosh | AI/ML Portfolio</title>
+  <link rel="stylesheet" href="p2.css" />
+  <link rel="stylesheet" href="ml.css"/>
+  <link rel="stylesheet" href="pfp.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fi-icons/css/fi.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="aurora-bg"></div>
+<div class="aurora-side"></div>
+<canvas id="bouncing-ball-canvas"></canvas>
+
+  <!-- Robot Chatbot Icon -->
+<div id="robot-chatbot" title="Chat with me!">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="#60a5fa">
+    <path d="M12 2a7 7 0 0 0-7 7v2a2 2 0 0 0-2 2v3h18v-3a2 2 0 0 0-2-2v-2a7 7 0 0 0-7-7zm0 2a5 5 0 0 1 5 5v2h-1v-2a4 4 0 0 0-8 0v2H7v-2a5 5 0 0 1 5-5zm-6 9v3h12v-3H6z"/>
+  </svg>
+  <div id="chat-bubble" class="hidden"></div>
+</div>
+
+<div class="custom-cursor"></div>
+<div class="social-sidebar">
+  <a href="https://www.instagram.com/delicate_echoes/" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.youtube.com/@DelicateEchoes" target="_blank" aria-label="YouTube" rel="noopener noreferrer">
+    <i class="fab fa-youtube"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/gargi-ghosh-b9389728a" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+  <a href="https://github.com/GargiGhosh03" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
+    <i class="fab fa-github"></i>
+  </a>
+</div>
+
+  <!-- Navbar -->
+ <nav class="navbar">
+ <div class="logo" id="logo">GARGI GHOSH</div>
+
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#publications-section">Publications</a></li>
+    <li><a href="work-experience.html">Experience</a></li>
+    <div class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div class="extra-menu" id="extraMenu">
+  <ul>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="about.html">Know more about me</a></li>
+  </ul>
+</div>
+</nav>
+
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <div class="neon-circle"></div>
+      <div class="content">
+        <h1 class="hero-title">
+        <div class="greeting">Hello</div>
+         <div class="hero-name">GARGI GHOSH</div>
+        </h1>
+        <p class="hero-subtitle">AI/ML Enthusiast • Cinematographer • Content Creator</p>
+        <a href="#projects" class="hero-button">Explore My Work ↓</a>
+      </div>
+     </div>
+    </div>
+  </div>
+</section>
+
+  <!-- About Section -->
+<section class="section about" id="about">
+  <h2 class="section-title">About Me</h2>
+  <div id="about-box-container"></div>
+  <a href="about.html" class="read-more-link">Read More →</a>
+</section>
+
+  <!-- Projects Section -->
+  <section class="section projects" id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-carousel">
+    <div class="project-card" onclick="location.href='projects.html#save-model'">
+      <h3> Evaluation of SAVE for Classification of Gastrointestinal Disease </h3>
+      <p>Designed and implemented multiple ML models for medical image classification tasks, specifically focusing on endoscopy and colonoscopy datasets.</p>
+    </div>
+    <div class="project-card" onclick="location.href='projects.html#photography'">
+      <h3> Lung and Colon Cancer Detection</h3>
+      <p>Developed a deep learning model for the early detection of lung and colon cancer using medical imaging techniques. The model achieved high accuracy in identifying cancerous lesions, aiding radiologists in diagnosis.</p>
+    </div>
+    <div class="project-card" onclick="location.href='projects.html#chatbot'">
+      <h3>Apple Watch and Fitbit Data Processing and Prediction</h3>
+      <p>Developed a predictive model for Apple Watch and Fitbit data to forecast user health trends and activity levels.</p>
+    </div>
+    <div class="project-card" onclick="location.href='projects.html#ai-films'">
+      <h3>Warranty Claims Fraud Prediction</h3>
+      <p>Developed a machine learning model to predict fraudulent warranty claims, improving the accuracy of claims processing.</p>
+    </div>
+  </div>
+</section>
+
+  <!--Skills-->
+<section class="section skills" id="skills">
+  <div class="background-title">
+   <div class="skills-container">
+  <div class="skills-text">
+    <span>S</span>
+    <span>K</span>
+    <span>I</span>
+    <span>L</span>
+    <span>L</span>
+  </div>
+</div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card cyberpunk pulsate float1" style="--delay:0s">
+      <div class="scan-bar"></div>
+      <h3>Web Development</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float2" style="--delay:0.5s">
+      <div class="scan-bar"></div>
+      <h3>HTML5</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float3" style="--delay:0.5s">
+      <div class="scan-bar"></div>
+      <h3>CSS3</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float4" style="--delay:0.5s">
+      <div class="scan-bar"></div>
+      <h3>Javascript</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float5" style="--delay:0.5s">
+      <div class="scan-bar"></div>
+      <h3>Machine Learning</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float6" style="--delay:0.5s">
+      <div class="scan-bar"></div>
+      <h3>Artificial Intelligence</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float7" style="--delay:0.5s">
+      <div class="scan-bar"></div>
+      <h3>Deep Learning</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float7" style="--delay:0.5s">
+      <div class="scan-bar"></div>
+      <h3>LLM</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float7" style="--delay:0.5s">
+      <div class="scan-bar"></div>
+      <h3>Jupyter Notebook</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float7" style="--delay:0.5s">
+      <div class="scan-bar"></div>
+      <h3>Git/GitHub</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float7" style="--delay:0.5s">
+      <div class="scan-bar"></div>
+      <h3>Matlab</h3>
+    </div>
+    <div class="skill-card cyberpunk pulsate float7" style="--delay:0.5s">
+  <div class="scan-bar"></div>
+  <h3><a href="skills.html" class="read-more-link">Click for more...</a></h3>
+</div>
+</div>
+</section>
+
+<!--Publications-->
+<section class="publications-section" id="publications-section">
+  <div class="publication-slider">
+
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <canvas class="stars-bg"></canvas>
+      <div class="slide-content">
+        <div class="slide-left">
+          <h2> IoT-Based Smart Control System for Monitoring Agriculture</h2>
+          <p>The proposed system is intended to offer a new element to the agricultural backdrop for farming in order to help farmers produce better-quality and higher-yielding crops. An IoT -based smart agricultural monitoring system is being developed to create a model that can predict the weather, soil temperature, moisture, and water level with accuracy as well as include extra features like automated roof shading. Because weather and agriculture interact, accurate weather forecasting is necessary for agriculturalists to make informed decisions that would not lead to losses.</p>
+          <a href="https://ieeexplore.ieee.org/document/10441664" target="_blank">Read Full Paper</a>
+        </div>
+        <div class="slide-right">
+          <img src="E:\CV REQUIREMENTS\portfolio\10441664-fig-11-source-large.gif" alt="Paper 1 Preview" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <canvas class="stars-bg"></canvas>
+      <div class="slide-content">
+        <div class="slide-left">
+          <h2>AR App for visualizing interior design changes in real-world Environment</h2>
+          <p>This study introduces an augmented reality application for interior design. The field of architecture requires virtual information techniques with the expansion of digital technology. We have used a new interior design methodology using marker-based augmented reality. Users can select furniture options in an AR environment and view them projected in a real-world setting. To save consumers time and effort, this will streamline the interior design process and offer a better view of furniture arrangement.</p>
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5022936" target="_blank">Read Full Paper</a>
+        </div>
+        <div class="slide-right">
+          <img src="E:\CV REQUIREMENTS\portfolio\Screenshot 2025-06-08 175059.png" alt="Paper 2 Preview" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+  <canvas class="stars-bg"></canvas>
+  <div class="slide-content">
+    <div class="slide-left">
+      <h2>More to Come...</h2>
+      <p>Stay tuned for more research publications and updates.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+  <div class="contact-left">
+    <h1><span>LET'S</span><br>GET IN<br><span>TOUCH</span></h1>
+  </div>
+
+  <form class="contact-form">
+    <div class="input-group split">
+      <div class="input-wrapper">
+        <input type="text" placeholder="FULL NAME" required />
+      </div>
+      <div class="input-wrapper">
+        <input type="email" placeholder="EMAIL" required />
+      </div>
+      <div class="input-wrapper">
+        <input type="tel" placeholder="PHONE" required />
+      </div>
+    </div>
+
+    <!-- Message field -->
+    <div class="input-group">
+      <div class="input-wrapper">
+        <textarea placeholder="MESSAGE" required></textarea>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-btn">
+      <span>&rarr;</span>
+    </button>
+  </form>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p> +91-7586096775 | ghosh.gargi001@gmail.com</p>
+  </div>
+  <div class="footer-left">
+    <p> © 2025 Gargi Ghosh. All Rights Reserved.</p>
+  </div>
+  <div class="heartbeat-line">
+  <svg viewBox="0 0 500 100" preserveAspectRatio="none">
+    <polyline class="pulse" points="0,50 50,50 70,10 90,90 110,50 160,50 180,30 200,70 220,50 500,50" />
+  </svg>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src ="greet.js"></script>
+</body>
+</html>

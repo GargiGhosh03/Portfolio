@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skills – Gargi Ghosh</title>
+  <style>
+    body { 
+      background-color: #0a0c1b;
+      font-family: 'Orbitron', sans-serif;
+      color: #e0f2fe;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.8;
+    }
+
+    h1 {
+      color: #00ffe5;
+      text-shadow: 0 0 10px #00ffe5, 0 0 20px #8f04ec;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .skills-section {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(18, 24, 47, 0.8);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 255, 229, 0.3);
+    }
+
+    .skills-section p {
+      margin: 0.8rem 0;
+      font-size: 1.05rem;
+    }
+
+    .skills-section strong {
+      color: #00ffe5;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #1e293b;
+      color: #60a5fa;
+      padding: 0.4rem 0.8rem;
+      margin: 0.3rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      border: 1px solid #60a5fa;
+      box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+    }
+
+    #bouncing-ball-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  pointer-events: none;
+}
+
+nav a.active {
+  color: #fff;
+  border-bottom: 2px solid #60a5fa;
+}
+
+  </style>
+</head>
+<body>
+  <canvas id="bouncing-ball-canvas"></canvas>
+  <h1>Skill Set</h1>
+  <div class="skills-section">
+    <p><strong>Programming Languages:</strong> <span class="tag">Python</span> <span class="tag">R</span> <span class="tag">Java</span> <span class="tag">C++</span></p>
+
+    <p><strong>Libraries/ Frameworks :</strong> 
+      <span class="tag">Pytorch</span> <span class="tag">Pandas</span> <span class="tag">Numpy</span> 
+      <span class="tag">Matplotlib</span> <span class="tag">Seaborn</span> <span class="tag">Tensorflow</span> 
+      <span class="tag">Keras</span> <span class="tag">Scikit-learn</span> <span class="tag">OpenCV</span>
+        <span class="tag">NLTK</span> 
+    </p>
+    
+    <p><strong>Web Development:</strong> 
+      <span class="tag">HTML5</span> <span class="tag">CSS3</span> <span class="tag">JavaScript</span>
+    </p>
+
+    <p><strong>Tools:</strong> 
+      <span class="tag">Jupyter Notebook</span> <span class="tag">GitHub</span> <span class="tag">MATLAB</span>
+    </p>
+
+    <p><strong>Database Management:</strong> 
+      <span class="tag">SQL</span>
+    </p>
+
+    <p><strong>Operating System:</strong> 
+      <span class="tag">Linux</span> <span class="tag">Windows</span>
+    </p>
+
+    <p><strong>Graphic Design and Video Editing:</strong> 
+      <span class="tag">Adobe Lightroom</span> 
+      <span class="tag">Adobe Photoshop</span> 
+      <span class="tag">Adobe Premiere Pro</span>
+    </p>
+  </div>
+  <script>
+const canvas = document.getElementById("bouncing-ball-canvas");
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  const ball = {
+    x: canvas.width / 2,
+    y: canvas.height / 2,
+    radius: 18,
+    dx: 3,
+    dy: 2.5,
+    color: "rgba(0, 255, 229, 0.3)",
+    glow: "#00ffe5"
+  };
+
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+    ctx.fillStyle = ball.color;
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = ball.glow;
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  function update() {
+    // Clear canvas using transparency for trails, without dark background
+    ctx.globalCompositeOperation = 'destination-in';
+    ctx.fillStyle = "rgba(0, 0, 0, 0.92)"; // keep trails but clear slowly
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.globalCompositeOperation = 'lighter';
+
+    // Update ball position
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    // Bounce off walls
+    if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+      ball.dx *= -1;
+    }
+    if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+      ball.dy *= -1;
+    }
+
+    drawBall();
+    requestAnimationFrame(update);
+  }
+
+  update();
+  
+</script>
+
+</body>
+</html>
